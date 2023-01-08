@@ -1,7 +1,7 @@
 
 
 document.addEventListener('DOMContentLoaded', (e) => {
-    axios.get('https://crudcrud.com/api/44ef185831a14bfe82f9a1cbf71344b7/expenseDetails')
+    axios.get('https://crudcrud.com/api/71705d17b2214fcbb9b63e7c99e31449/expenseDetails')
     .then((response)=>{
         for(let i of response.data){
             printHistory(i);
@@ -29,7 +29,7 @@ function onbuttonclick(e){
     // console.log(expenseDetails);
     
     //using axios for storing expense details to crudcrud endpoint
-    axios.post('https://crudcrud.com/api/44ef185831a14bfe82f9a1cbf71344b7/expenseDetails',expenseDetails)
+    axios.post('https://crudcrud.com/api/71705d17b2214fcbb9b63e7c99e31449/expenseDetails',expenseDetails)
     .then((response)=>{
         console.log(response);
         printHistory(response.data);
@@ -62,7 +62,7 @@ function printHistory(obj){
         document.getElementById('description').value = obj.desc;
         document.getElementById('category').value = obj.category;
         li.remove();
-        axios.delete(`https://crudcrud.com/api/44ef185831a14bfe82f9a1cbf71344b7/expenseDetails/${obj._id}`)
+        axios.delete(`https://crudcrud.com/api/71705d17b2214fcbb9b63e7c99e31449/expenseDetails/${obj._id}`)
         .then((response)=>{
                 console.log(response.data);
         })
@@ -71,7 +71,7 @@ function printHistory(obj){
     });
     //when delete button is clicked
     delBtn.addEventListener('click', (e)=>{
-        axios.delete(`https://crudcrud.com/api/44ef185831a14bfe82f9a1cbf71344b7/expenseDetails/${obj._id}`)
+        axios.delete(`https://crudcrud.com/api/71705d17b2214fcbb9b63e7c99e31449/expenseDetails/${obj._id}`)
         .then((response)=>{
             console.log('Deleted');
             li.remove();
